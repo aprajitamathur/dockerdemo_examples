@@ -19,10 +19,9 @@ What does these mean :
 The FROM command tells the builder that our container image will base from the ubuntu image.   
 Any instructions performed after this will create more layers in this image.  
 The RUN command will update and install cowsay   
-The ENTRYPOINT instruction allows you to configure a container that will run as an executable. 
-It looks similar to CMD, because it also allows you to specify a command with parameters 
+The ENTRYPOINT instruction allows you to configure a container that will run as an executable.  
 The CMD instruction allows us to set a default command, which will be executed only when you run container without specifying a command. 
-If Docker container runs with a command, the default command will be ignored
+Note : If Docker container runs with a command, the default command will be ignored
 
 
 # Build your image by run the following command:
