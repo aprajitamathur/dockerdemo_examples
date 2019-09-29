@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y cowsay
 ENTRYPOINT ["/usr/games/cowsay"]
 CMD ["Moo Moo"]
 
-What does these mean :
+What does these mean :  
 The FROM command tells the builder that our container image will base from the ubuntu image.   
 Any instructions performed after this will create more layers in this image.  
 The RUN command will update and install cowsay   
