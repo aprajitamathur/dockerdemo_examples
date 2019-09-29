@@ -61,8 +61,8 @@ docker run {yourname}/my-fun-cowsay STARWEST
 We'll see the image get pulled from Docker Hub and start up with a fun Cow saying "STARWEST" Magic, huh?
 
 
-#Summary
+# Summary
 We needed a ubuntu system,cowsay package, and a simple way to execute the cowsay command. 
 Before docker contriners , this would take several tries before it worked. 
 We needed to have a machine that had everything installed and instructions on how to run cowsay on that system.  
-But, our image shipped everything anyone needs to run this out of the box .
+But, our image shipped everything anyone needs to run this out of the box.
