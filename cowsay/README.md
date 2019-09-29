@@ -10,15 +10,17 @@ In your console, create a folder named cowsay_yourname.
 
 In this directory, create a create a file named Dockerfile
 In the file, put the following:
-
-
-
+FROM ubuntu
+RUN apt-get update && apt-get install -y cowsay 
+ENTRYPOINT ["/usr/games/cowsay"]
+CMD ["Moo Moo"]
 
 What does these mean :
-The FROM command tells the builder that our container image will base from the ubuntu image. 
-Any instructions performed after this will create more layers in this image.
-The RUN command will update and install cowsay 
-The ENTRYPOINT instruction allows you to configure a container that will run as an executable. It looks similar to CMD, because it also allows you to specify a command with parameters 
+The FROM command tells the builder that our container image will base from the ubuntu image.   
+Any instructions performed after this will create more layers in this image.  
+The RUN command will update and install cowsay   
+The ENTRYPOINT instruction allows you to configure a container that will run as an executable. 
+It looks similar to CMD, because it also allows you to specify a command with parameters 
 The CMD instruction allows us to set a default command, which will be executed only when you run container without specifying a command. 
 If Docker container runs with a command, the default command will be ignored
 
@@ -32,14 +34,14 @@ Let's run our container image! Run the following command:
 
 docker run my-fun-cowsay
 
-Congrats! You've now created and run your first container image!
+Moo Moo ! We create and ran our very own first image!
 
 Sharing the Image
 The image you just created exists only on the machine that performed the build. So, if we want to share the image, we need to push it to a registry. Think of a registry as a code repo. It's sole purpose is to share container images.
 In order to push to Docker Hub, we need to authenticate. Do this by running:
 
 docker login
-All images (except Official Images) in Docker Hub are namespaced. For example, if I push images, they aren't going to simply named my-first-php-image, as it doesn't convey who it comes from, but creates a nightmare trying to ensure my image doesn't collide with yours. To fix this, my image would be named mikesir87/my-first-php-image. Using the docker tag command, we can provide another name for the image we built earlier.
+All images (except Official Images) in Docker Hub are namespaced (ie it includes your name in front of it to avoid confusion)
 
 # Replace aprajitamathur with your Docker Hub username
 docker tag my-fun-cowsay aprajitamathur/my-fun-cowsay
@@ -58,10 +60,8 @@ In the terminal run the following:
 docker run aprajitamathur/my-fun-cowsay STARWEST
 We'll see the image get pulled from Docker Hub and start up. Magic, huh?
 
-Wrap-up
-While this was a pretty simple application, let's think about what was needed to run the application.
-
-We needed a PHP runtime engine, an Apache HTTP server, and a PHP script. Before containers, we would have needed to have a machine that had the correct versions installed and make the script available. 
-But, our container image shipped everything it needed to run.
-We created our container image using a Dockerfile, which assures our application is consistent no matter where we build it. 
-With it being a text file, the full environment of our application can be version controlled!
+#Summary
+We needed a ubuntu system,cowsay package, and a simple way to execute the cowsay command. 
+Before docker contriners , this would take several tries before it worked. 
+We needed to have a machine that had everything installed and instructions on how to run cowsay on that system.  
+But, our image shipped everything anyone needs to run this out of the box .
