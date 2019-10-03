@@ -1,0 +1,9 @@
+#source : https://docs.docker.com/compose/gettingstarted/
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
