@@ -1,3 +1,4 @@
+#The main content of this file came from : https://github.com/joyzoursky/docker-python-chromedriver . some modifications were made to meet the tutorilal needs
 FROM python:3.9
 
 # install google chrome
