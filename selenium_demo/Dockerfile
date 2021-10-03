@@ -25,5 +25,9 @@ WORKDIR /usr/workspace
 
 #run this command on entry
 ENTRYPOINT ["python"]
+#copy the tests in the container - this is not adviced. 
+#COPY . .
 
+#CMD - adding this for people who cannot access git and are using playground , this image was selenium_docker_with_ptest 
+#CMD ["test_python.py"]
 
