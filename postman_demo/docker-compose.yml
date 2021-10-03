@@ -1,0 +1,12 @@
+version: "3"
+services:
+  postman_dockerdemo:
+      container_name: postman_dockerdemo
+      build: .
+      image: postman_dockerdemo
+      command:
+        run https://www.getpostman.com/collections/46fa966bee3fcb094279
+        -r html,cli
+        --reporter-html-export reports/Main_Report.html
+      volumes:
+        - ./src:/etc/newman
